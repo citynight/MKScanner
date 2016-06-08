@@ -10,7 +10,10 @@
 #define XZBaseMacro_h
 @import UIKit;
 
-
+/** 屏幕宽 */
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+/** 屏幕高 */
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 #define kTipAlert(_S_, ...)     [[[UIAlertView alloc] initWithTitle:@"提示" message:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil] show]
 

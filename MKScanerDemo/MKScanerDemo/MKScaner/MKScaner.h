@@ -70,7 +70,7 @@
  *  @param scale      头像占的比例
  *  @param completion 回调
  */
-+ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *))completion;
++ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *image))completion;
 
 /**
  *  开始扫描

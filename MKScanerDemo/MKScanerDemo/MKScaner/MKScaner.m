@@ -39,7 +39,7 @@
     [self qrImageWithString:string avatar:avatar scale:0.20 completion:completion];
 }
 
-+ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *))completion {
++ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *image))completion {
     
     NSAssert(completion != nil, @"必须传入完成回调");
     

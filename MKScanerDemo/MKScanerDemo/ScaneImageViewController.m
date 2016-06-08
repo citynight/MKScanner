@@ -15,10 +15,7 @@
 #import "Helper.h"
 @import AVFoundation;
 
-/** 屏幕宽 */
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-/** 屏幕高 */
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
 
 
 @interface ScaneImageViewController ()<UIAlertViewDelegate,UITextFieldDelegate>
