@@ -32,7 +32,7 @@
 
 @import UIKit;
 
-@interface MKScaner : NSObject
+@interface MKScanner : NSObject
 
 /**
 *  使用视图实例化扫描器，扫描预览窗口会添加到指定视图中
@@ -70,7 +70,7 @@
  *  @param scale      头像占的比例
  *  @param completion 回调
  */
-+ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *))completion;
++ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *image))completion;
 
 /**
  *  开始扫描

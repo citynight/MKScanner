@@ -8,13 +8,13 @@
 //  Copyright © 2016年 Mekor. All rights reserved.
 //
 
-#import "MKScaner.h"
+#import "MKScanner.h"
 @import AVFoundation;
 
 /// 最大检测次数
 #define kMaxDetectedCount   20
 
-@interface MKScaner() <AVCaptureMetadataOutputObjectsDelegate>
+@interface MKScanner() <AVCaptureMetadataOutputObjectsDelegate>
 /// 父视图弱引用
 @property (nonatomic, weak) UIView *parentView;
 /// 扫描范围
@@ -23,7 +23,7 @@
 @property (nonatomic, copy) void (^completionCallBack)(NSString *);
 @end
 
-@implementation MKScaner {
+@implementation MKScanner {
     /// 拍摄会话
     AVCaptureSession *session;
     /// 预览图层
@@ -39,7 +39,7 @@
     [self qrImageWithString:string avatar:avatar scale:0.20 completion:completion];
 }
 
-+ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *))completion {
++ (void)qrImageWithString:(NSString *)string avatar:(UIImage *)avatar scale:(CGFloat)scale completion:(void (^)(UIImage *image))completion {
     
     NSAssert(completion != nil, @"必须传入完成回调");
     

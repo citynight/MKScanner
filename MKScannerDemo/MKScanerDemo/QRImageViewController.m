@@ -12,7 +12,7 @@
 #import "UIView+Extensions.h"
 #import "Helper.h"
 #import "XZBaseMacro.h"
-#import "MKScaner.h"
+#import "MKScanner.h"
 
 @interface QRImageViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UITextField *textField; ///< 二维码包含的文字
@@ -76,7 +76,7 @@
 }
 
 -(void) makeQRCodeImage {
-    [MKScaner qrImageWithString:self.textField.text avatar:self.qrImageView.image scale:0.2 completion:^(UIImage *image) {
+    [MKScanner qrImageWithString:self.textField.text avatar:self.qrImageView.image scale:0.2 completion:^(UIImage *image) {
         self.qrImageView.image = image;
     }];
 }

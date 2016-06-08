@@ -10,7 +10,7 @@
 
 #import "ScaneImageViewController.h"
 #import "UIView+Extensions.h"
-#import "MKScaner.h"
+#import "MKScanner.h"
 #import "XZBaseMacro.h"
 #import "Helper.h"
 @import AVFoundation;
@@ -61,7 +61,7 @@
 @property (nonatomic, strong, nonnull) UIButton *numberCodeOKButton;
 @property (nonatomic, assign) BOOL hasClickOkButton;
 
-@property (nonatomic, strong) MKScaner *scanner;
+@property (nonatomic, strong) MKScanner *scanner;
 @end
 
 @implementation ScaneImageViewController
@@ -123,7 +123,7 @@
         readerView;
     });
     
-    self.scanner = [MKScaner scanerWithView:self.readerView scanFrame:self.readerView.bounds completion:^(NSString *stringValue) {
+    self.scanner = [MKScanner scanerWithView:self.readerView scanFrame:self.readerView.bounds completion:^(NSString *stringValue) {
         NSArray *subArray = [stringValue componentsSeparatedByString:@"="];
         NSLog(@"%@", [subArray lastObject]);
         [self requestWZCodeIsValid:[subArray lastObject]]; // 判断二维码是否有效

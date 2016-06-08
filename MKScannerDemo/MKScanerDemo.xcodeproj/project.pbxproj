@@ -13,12 +13,12 @@
 		5A4920DC1D07AA76000D6114 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4920DA1D07AA76000D6114 /* Main.storyboard */; };
 		5A4920DE1D07AA76000D6114 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A4920DD1D07AA76000D6114 /* Assets.xcassets */; };
 		5A4920E11D07AA76000D6114 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4920DF1D07AA76000D6114 /* LaunchScreen.storyboard */; };
-		5A4920EB1D07AA91000D6114 /* MKScaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4920EA1D07AA91000D6114 /* MKScaner.m */; };
 		5A4920EE1D07AC37000D6114 /* ScaneImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4920ED1D07AC37000D6114 /* ScaneImageViewController.m */; };
 		5A4920F11D07AC61000D6114 /* QRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4920F01D07AC61000D6114 /* QRImageViewController.m */; };
 		5A4920F61D07B5A6000D6114 /* UIView+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4920F51D07B5A6000D6114 /* UIView+Extensions.m */; };
 		5A4920FB1D07B7D6000D6114 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4920FA1D07B7D6000D6114 /* Helper.m */; };
 		5A4920FF1D07B971000D6114 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4920FE1D07B971000D6114 /* UIAlertView+Block.m */; };
+		5A4921031D07D46F000D6114 /* MKScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4921021D07D46F000D6114 /* MKScanner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +32,6 @@
 		5A4920DD1D07AA76000D6114 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A4920E01D07AA76000D6114 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A4920E21D07AA76000D6114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A4920E91D07AA91000D6114 /* MKScaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKScaner.h; sourceTree = "<group>"; };
-		5A4920EA1D07AA91000D6114 /* MKScaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKScaner.m; sourceTree = "<group>"; };
 		5A4920EC1D07AC37000D6114 /* ScaneImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaneImageViewController.h; sourceTree = "<group>"; };
 		5A4920ED1D07AC37000D6114 /* ScaneImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScaneImageViewController.m; sourceTree = "<group>"; };
 		5A4920EF1D07AC61000D6114 /* QRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRImageViewController.h; sourceTree = "<group>"; };
@@ -45,6 +43,8 @@
 		5A4920FA1D07B7D6000D6114 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		5A4920FD1D07B971000D6114 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
 		5A4920FE1D07B971000D6114 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		5A4921011D07D46F000D6114 /* MKScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKScanner.h; sourceTree = "<group>"; };
+		5A4921021D07D46F000D6114 /* MKScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKScanner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 		5A4920D01D07AA76000D6114 /* MKScanerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5A4920E81D07AA91000D6114 /* MKScaner */,
+				5A4921001D07D46F000D6114 /* MKScanner */,
 				5A4920D41D07AA76000D6114 /* AppDelegate.h */,
 				5A4920D51D07AA76000D6114 /* AppDelegate.m */,
 				5A4920F21D07B57E000D6114 /* Class */,
@@ -96,15 +96,6 @@
 				5A4920D21D07AA76000D6114 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5A4920E81D07AA91000D6114 /* MKScaner */ = {
-			isa = PBXGroup;
-			children = (
-				5A4920E91D07AA91000D6114 /* MKScaner.h */,
-				5A4920EA1D07AA91000D6114 /* MKScaner.m */,
-			);
-			path = MKScaner;
 			sourceTree = "<group>";
 		};
 		5A4920F21D07B57E000D6114 /* Class */ = {
@@ -149,6 +140,15 @@
 				5A4920FA1D07B7D6000D6114 /* Helper.m */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		5A4921001D07D46F000D6114 /* MKScanner */ = {
+			isa = PBXGroup;
+			children = (
+				5A4921011D07D46F000D6114 /* MKScanner.h */,
+				5A4921021D07D46F000D6114 /* MKScanner.m */,
+			);
+			path = MKScanner;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,10 +223,10 @@
 			files = (
 				5A4920D91D07AA76000D6114 /* ViewController.m in Sources */,
 				5A4920F61D07B5A6000D6114 /* UIView+Extensions.m in Sources */,
-				5A4920EB1D07AA91000D6114 /* MKScaner.m in Sources */,
 				5A4920FB1D07B7D6000D6114 /* Helper.m in Sources */,
 				5A4920D61D07AA76000D6114 /* AppDelegate.m in Sources */,
 				5A4920F11D07AC61000D6114 /* QRImageViewController.m in Sources */,
+				5A4921031D07D46F000D6114 /* MKScanner.m in Sources */,
 				5A4920FF1D07B971000D6114 /* UIAlertView+Block.m in Sources */,
 				5A4920EE1D07AC37000D6114 /* ScaneImageViewController.m in Sources */,
 				5A4920D31D07AA76000D6114 /* main.m in Sources */,
