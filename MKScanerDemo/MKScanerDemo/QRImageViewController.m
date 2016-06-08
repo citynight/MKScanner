@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad
 {
+    self.title = @"QRImageViewController";
     self.view.backgroundColor = [UIColor whiteColor];
 }
 - (void)viewWillAppear:(BOOL)animated
