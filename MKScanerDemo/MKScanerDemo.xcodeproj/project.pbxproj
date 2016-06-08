@@ -110,8 +110,8 @@
 		5A4920F21D07B57E000D6114 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				5A4920FC1D07B7DB000D6114 /* Helper */,
 				5A4920F81D07B6E6000D6114 /* XZBaseMacro.h */,
+				5A4920FC1D07B7DB000D6114 /* Helper */,
 				5A4920F71D07B5AF000D6114 /* Category */,
 				5A4920F31D07B592000D6114 /* Controller */,
 			);
