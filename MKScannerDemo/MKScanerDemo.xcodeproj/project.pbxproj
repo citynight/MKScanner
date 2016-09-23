@@ -182,6 +182,8 @@
 				TargetAttributes = {
 					5A4920CD1D07AA75000D6114 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = NR8VJCLF85;
+						DevelopmentTeamName = "小争 李 (Personal Team)";
 					};
 				};
 			};
