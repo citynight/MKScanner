@@ -182,7 +182,7 @@
 				TargetAttributes = {
 					5A4920CD1D07AA75000D6114 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = NR8VJCLF85;
+						DevelopmentTeam = J6554N9927;
 						DevelopmentTeamName = "小争 李 (Personal Team)";
 					};
 				};
@@ -345,10 +345,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J6554N9927;
 				INFOPLIST_FILE = MKScanerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = citynight.cn.MKScanerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hdl.HHTPAD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -357,10 +358,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J6554N9927;
 				INFOPLIST_FILE = MKScanerDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = citynight.cn.MKScanerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hdl.HHTPAD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
