@@ -47,8 +47,13 @@
         
         CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
         
+        // 防止复用
         [qrFilter setDefaults];
+        // 设置输入数据
         [qrFilter setValue:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:@"inputMessage"];
+        // 设置纠错率 L 7%的字码可以被修正  M 15%的字码可以被修正 Q 25%的字码可以被修正 H 30%的字码可以被修正
+        [qrFilter setValue:"M" forKey:@"inputCorrectionLevel"];
+        
         
         CIImage *ciImage = qrFilter.outputImage;
         
