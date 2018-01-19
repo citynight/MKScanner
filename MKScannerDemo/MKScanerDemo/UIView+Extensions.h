@@ -25,9 +25,9 @@ CGRect CGRectMoveToCenter(CGRect rect, CGPoint center);
 //############################################
 
 
-@property(readonly) CGPoint bottomLeft;
-@property(readonly) CGPoint bottomRight;
-@property(readonly) CGPoint topRight;
+//@property(readonly) CGPoint bottomLeft;
+//@property(readonly) CGPoint bottomRight;
+//@property(readonly) CGPoint topRight;
 
 /// Y坐标
 @property CGFloat top;
