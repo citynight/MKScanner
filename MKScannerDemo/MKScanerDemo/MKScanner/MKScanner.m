@@ -18,6 +18,9 @@
 @property (nonatomic) CGRect scanFrame;
 /// 完成回调
 @property (nonatomic, copy) void (^completionCallBack)(NSString *);
+
+@property (nonatomic,strong)AVCaptureDevice *device;
+
 @end
 
 @implementation MKScanner {
@@ -294,8 +297,8 @@
 - (void )setupSession {
     
     // 1> 输入设备
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
+    self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:nil];
     
     if (videoInput == nil) {
         NSLog(@"创建输入设备失败");
@@ -323,6 +326,23 @@
     // 使用最合适的配置
     session.sessionPreset = AVCaptureSessionPresetPhoto;
     
+    
+    //更改这个设置的时候必须先锁定设备，修改完后再解锁，否则崩溃
+    [self.device lockForConfiguration:nil];
+    //设置闪光灯为自动
+//    [self.device setFlashMode:AVCaptureFlashModeAuto];
+    
+    [session beginConfiguration];
+    if ([self.device isWhiteBalanceModeSupported:AVCaptureWhiteBalanceModeAutoWhiteBalance]) {
+        [self.device setWhiteBalanceMode:AVCaptureWhiteBalanceModeAutoWhiteBalance];
+    }
+    [self.device unlockForConfiguration];
+    [session commitConfiguration];
+    
+    
+    // 这里就是监听相机自动对焦的
+    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(subjectAreaDidChange:) name:AVCaptureDeviceSubjectAreaDidChangeNotification object:self.device];
+    
     // 4> 添加输入／输出设备
     [session addInput:videoInput];
     [session addOutput:dataOutput];
@@ -333,6 +353,21 @@
     
     // 6> 设置预览图层会话
     [self setupLayers];
+}
+
+- (void)subjectAreaDidChange:(NSNotification *)notification
+{
+    //先进行判断是否支持控制对焦
+    if (_device.isFocusPointOfInterestSupported &&[_device isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
+        
+        NSError *error =nil;
+        //对cameraDevice进行操作前，需要先锁定，防止其他线程访问，
+        [_device lockForConfiguration:&error];
+        [_device setFocusMode:AVCaptureFocusModeAutoFocus];
+        //操作完成后，记得进行unlock。
+        [_device unlockForConfiguration];
+    }
+    
 }
 
 
