@@ -11,9 +11,6 @@
 #import "MKScanner.h"
 @import AVFoundation;
 
-/// 最大检测次数
-#define kMaxDetectedCount   20
-
 @interface MKScanner() <AVCaptureMetadataOutputObjectsDelegate>
 /// 父视图弱引用
 @property (nonatomic, weak) UIView *parentView;
@@ -47,13 +44,8 @@
         
         CIFilter *qrFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
         
-        // 防止复用
         [qrFilter setDefaults];
-        // 设置输入数据
         [qrFilter setValue:[string dataUsingEncoding:NSUTF8StringEncoding] forKey:@"inputMessage"];
-        // 设置纠错率 L 7%的字码可以被修正  M 15%的字码可以被修正 Q 25%的字码可以被修正 H 30%的字码可以被修正
-        [qrFilter setValue:@"M" forKey:@"inputCorrectionLevel"];
-        
         
         CIImage *ciImage = qrFilter.outputImage;
         
@@ -174,8 +166,8 @@
         if (!CGRectContainsRect(self.scanFrame, dataObject.bounds)) {
             continue;
         }
-        
-        if (currentDetectedCount++ < kMaxDetectedCount) {
+        /// 最大检测次数
+        if (currentDetectedCount++ < 20) {
             // 绘制边角
             [self drawCornersShape:dataObject];
         } else {
@@ -269,13 +261,37 @@
     previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:session];
     
     previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    previewLayer.connection.videoOrientation = [self getDeviceDirection];
     previewLayer.frame = self.parentView.bounds;
     
     [self.parentView.layer insertSublayer:previewLayer atIndex:0];
 }
 
+/// 获取当前摄像头方向
+-(AVCaptureVideoOrientation) getDeviceDirection {
+    
+    AVCaptureVideoOrientation temp = AVCaptureVideoOrientationLandscapeRight;
+    switch (UIApplication.sharedApplication.statusBarOrientation) {
+        case UIInterfaceOrientationUnknown:
+            temp = AVCaptureVideoOrientationLandscapeRight;
+            break;
+        case UIInterfaceOrientationPortrait:
+            temp = AVCaptureVideoOrientationPortrait;
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            temp = AVCaptureVideoOrientationPortraitUpsideDown;
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            temp = AVCaptureVideoOrientationLandscapeLeft;
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            temp = AVCaptureVideoOrientationLandscapeRight;
+            break;
+    }
+    return temp;
+}
 /// 设置扫描会话
-- (void)setupSession {
+- (void )setupSession {
     
     // 1> 输入设备
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -303,6 +319,9 @@
         
         return;
     }
+    
+    // 使用最合适的配置
+    session.sessionPreset = AVCaptureSessionPresetPhoto;
     
     // 4> 添加输入／输出设备
     [session addInput:videoInput];
